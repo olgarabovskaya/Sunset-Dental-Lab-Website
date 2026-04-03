@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sunset Dental Laboratory</title>
+    <meta
+      name="description"
+      content="Owner-operated dental laboratory delivering precise crowns, bridges, and implant restorations with exceptional fit, accurate occlusion, and responsive communication."
+    />
+    <style>
+      :root {
+        --navy: #0a1535;
+        --deep-blue: #08547d;
+        --deep-blue-2: #0a5f8f;
+        --bright-blue: #1fb4f0;
+        --soft-bg: #f3f5f7;
+        --card-blue: #eaf4fb;
+        --text: #10203d;
+        --muted: #53627f;
+        --white: #ffffff;
+        --border: rgba(16, 32, 61, 0.08);
+        --shadow: 0 14px 40px rgba(10, 21, 53, 0.08);
+        --radius: 26px;
+        --max-width: 1180px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: var(--soft-bg);
+        color: var(--text);
+        line-height: 1.5;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .container {
+        width: min(calc(100% - 40px), var(--max-width));
+        margin: 0 auto;
+      }
+
+      .section {
+        padding: 96px 0;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 18px;
+        font-size: 0.9rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #167fc4;
+        font-weight: 700;
+      }
+
+      .section-heading {
+        text-align: center;
+        max-width: 860px;
+        margin: 0 auto 48px;
+      }
+
+      .section-heading h2 {
+        margin: 0 0 18px;
+        font-size: clamp(2rem, 4vw, 3.3rem);
+        line-height: 1.08;
+        letter-spacing: -0.03em;
+      }
+
+      .section-heading p {
+        margin: 0;
+        font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+        color: var(--muted);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 220px;
+        padding: 16px 30px;
+        border-radius: 999px;
+        background: linear-gradient(135deg, #45c8ff, var(--bright-blue));
+        color: var(--navy);
+        font-weight: 700;
+        font-size: 1.05rem;
+        border: 0;
+        box-shadow: 0 14px 30px rgba(31, 180, 240, 0.22);
+        transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 34px rgba(31, 180, 240, 0.3);
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        backdrop-filter: blur(16px);
+        background: rgba(8, 84, 125, 0.95);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .nav-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        min-height: 82px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .brand-mark {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        display: grid;
+        place-items: center;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--white);
+        font-size: 1.1rem;
+      }
+
+      .brand-text strong {
+        display: block;
+        color: var(--white);
+        font-size: 1.8rem;
+        line-height: 1;
+        letter-spacing: -0.03em;
+      }
+
+      .brand-text span {
+        display: block;
+        margin-top: 3px;
+        color: #7ed1f6;
+        font-size: 0.82rem;
+        letter-spacing: 0.17em;
+        text-transform: uppercase;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+
+      .nav-links a {
+        color: #a8dcf6;
+        font-weight: 500;
+        font-size: 1rem;
+        transition: color 0.18s ease;
+      }
+
+      .nav-links a:hover {
+        color: var(--white);
+      }
+
+      .nav-contact {
+        padding-bottom: 6px;
+        border-bottom: 2px solid #7ed1f6;
+      }
+
+      .hero {
+        background:
+          radial-gradient(circle at 15% 20%, rgba(126, 209, 246, 0.16), transparent 0 28%),
+          radial-gradient(circle at 85% 18%, rgba(31, 180, 240, 0.14), transparent 0 24%),
+          linear-gradient(180deg, var(--deep-blue), var(--deep-blue-2));
+        color: var(--white);
+        padding: 110px 0 120px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: auto -120px -140px auto;
+        width: 420px;
+        height: 420px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 62%);
+        pointer-events: none;
+      }
+
+      .hero-inner {
+        max-width: 980px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .hero .eyebrow {
+        color: #7ed1f6;
+        margin-bottom: 22px;
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-size: clamp(3rem, 7vw, 5.4rem);
+        line-height: 0.98;
+        letter-spacing: -0.05em;
+      }
+
+      .hero p {
+        max-width: 940px;
+        margin: 28px auto 0;
+        font-size: clamp(1.18rem, 2vw, 1.6rem);
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .hero-actions {
+        margin-top: 40px;
+      }
+
+      .trust-strip {
+        margin-top: -38px;
+      }
+
+      .trust-grid {
+        background: var(--white);
+        border-radius: 30px;
+        box-shadow: var(--shadow);
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        overflow: hidden;
+      }
+
+      .trust-item {
+        padding: 28px 24px;
+        border-right: 1px solid var(--border);
+      }
+
+      .trust-item:last-child {
+        border-right: 0;
+      }
+
+      .trust-item strong {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 1.05rem;
+      }
+
+      .trust-item p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.98rem;
+      }
+
+      .services-grid,
+      .quality-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 28px;
+      }
+
+      .card {
+        background: var(--white);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 34px 34px 32px;
+        box-shadow: 0 8px 18px rgba(16, 32, 61, 0.04);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 34px rgba(16, 32, 61, 0.09);
+      }
+
+      .service-card {
+        min-height: 245px;
+      }
+
+      .card-top {
+        display: flex;
+        align-items: flex-start;
+        gap: 18px;
+        margin-bottom: 18px;
+      }
+
+      .icon {
+        width: 54px;
+        height: 54px;
+        border-radius: 16px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(180deg, #f3fbff, #e6f5fe);
+        color: #1587cf;
+        flex-shrink: 0;
+        border: 1px solid rgba(21, 135, 207, 0.08);
+      }
+
+      .icon svg {
+        width: 26px;
+        height: 26px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .card h3 {
+        margin: 3px 0 0;
+        font-size: 1.95rem;
+        line-height: 1.1;
+        letter-spacing: -0.03em;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.18rem;
+      }
+
+      .chair-time {
+        background: var(--white);
+      }
+
+      .chair-time-panel {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 34px;
+        align-items: stretch;
+      }
+
+      .chair-copy,
+      .chair-points {
+        background: linear-gradient(180deg, #ffffff, #f8fbfd);
+        border: 1px solid var(--border);
+        border-radius: 30px;
+        padding: 40px;
+        box-shadow: 0 10px 28px rgba(16, 32, 61, 0.05);
+      }
+
+      .chair-copy h2,
+      .owner-panel h2,
+      .support-panel h2,
+      .cta-panel h2 {
+        margin: 0 0 16px;
+        font-size: clamp(2.1rem, 3.4vw, 3.3rem);
+        line-height: 1.05;
+        letter-spacing: -0.04em;
+      }
+
+      .chair-copy p,
+      .owner-panel p,
+      .support-panel p,
+      .cta-panel p,
+      .usa-panel p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.14rem;
+      }
+
+      .check-list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 18px;
+      }
+
+      .check-list li {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        color: var(--text);
+        font-weight: 600;
+        font-size: 1.08rem;
+      }
+
+      .check-list span {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: #e4f5fd;
+        color: #1181ca;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+
+      .owner-panel,
+      .support-panel,
+      .usa-panel {
+        max-width: 980px;
+        margin: 0 auto;
+        text-align: center;
+        background: linear-gradient(180deg, #ffffff, #f8fbfd);
+        border: 1px solid var(--border);
+        border-radius: 34px;
+        padding: 56px 52px;
+        box-shadow: 0 10px 28px rgba(16, 32, 61, 0.05);
+      }
+
+      .owner-panel p,
+      .support-panel p,
+      .usa-panel p {
+        max-width: 780px;
+        margin: 0 auto;
+      }
+
+      .quality-grid .card {
+        background: var(--card-blue);
+        border: 0;
+        box-shadow: none;
+      }
+
+      .quality-grid .card h3 {
+        font-size: 1.8rem;
+      }
+
+      .quality-grid .card p {
+        font-size: 1.08rem;
+      }
+
+      .quality-grid .icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: #1587cf;
+        color: var(--white);
+        font-size: 0.95rem;
+      }
+
+      .quality-grid .card-top {
+        margin-bottom: 14px;
+      }
+
+      .quality-extra {
+        display: block;
+        margin-top: 12px;
+        color: var(--text);
+        font-weight: 700;
+      }
+
+      .cta-band {
+        background: var(--deep-blue);
+        color: var(--white);
+        padding: 88px 0 0;
+      }
+
+      .cta-panel {
+        text-align: center;
+        max-width: 900px;
+        margin: 0 auto;
+        padding-bottom: 78px;
+      }
+
+      .cta-panel p {
+        max-width: 760px;
+        margin: 0 auto 28px;
+        color: rgba(255, 255, 255, 0.82);
+      }
+
+      .contact-links {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin: 20px 0 34px;
+      }
+
+      .contact-chip {
+        padding: 12px 18px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--white);
+        font-weight: 600;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        transition: transform 0.18s ease, background 0.18s ease;
+      }
+
+      .contact-chip:hover {
+        transform: translateY(-2px);
+        background: rgba(255, 255, 255, 0.16);
+      }
+
+      footer {
+        background: var(--navy);
+        color: var(--white);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr 1fr;
+        gap: 40px;
+        padding: 44px 0 54px;
+      }
+
+      footer h4 {
+        margin: 0 0 14px;
+        font-size: 1.65rem;
+        letter-spacing: -0.03em;
+      }
+
+      footer p,
+      footer a {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.68);
+        font-size: 1.08rem;
+        line-height: 1.7;
+      }
+
+      @media (max-width: 1080px) {
+        .trust-grid,
+        .services-grid,
+        .quality-grid,
+        .chair-time-panel,
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .trust-item:nth-child(2) {
+          border-right: 0;
+        }
+
+        .trust-item:nth-child(-n + 2) {
+          border-bottom: 1px solid var(--border);
+        }
+
+        .chair-time-panel {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .section {
+          padding: 72px 0;
+        }
+
+        .nav-wrap {
+          min-height: 74px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .brand-text strong {
+          font-size: 1.4rem;
+        }
+
+        .hero {
+          padding: 90px 0 100px;
+        }
+
+        .hero p {
+          font-size: 1.08rem;
+        }
+
+        .trust-grid,
+        .services-grid,
+        .quality-grid,
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .trust-item,
+        .trust-item:nth-child(2) {
+          border-right: 0;
+          border-bottom: 1px solid var(--border);
+        }
+
+        .trust-item:last-child {
+          border-bottom: 0;
+        }
+
+        .card,
+        .chair-copy,
+        .chair-points,
+        .owner-panel,
+        .support-panel,
+        .usa-panel {
+          padding: 28px;
+          border-radius: 24px;
+        }
+
+        .card h3,
+        .quality-grid .card h3 {
+          font-size: 1.55rem;
+        }
+
+        .card p,
+        .quality-grid .card p,
+        .chair-copy p,
+        .owner-panel p,
+        .support-panel p,
+        .usa-panel p,
+        footer p,
+        footer a {
+          font-size: 1rem;
+        }
+
+        .contact-links {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a class="brand" href="#top" aria-label="Sunset Dental Laboratory home">
+          <div class="brand-mark">✦</div>
+          <div class="brand-text">
+            <strong>Sunset Dental Lab</strong>
+            <span>Quality Restorations</span>
+          </div>
+        </a>
+
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#services">Services</a>
+          <a href="#quality">Why Us</a>
+          <a href="#support">Support</a>
+          <a class="nav-contact" href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="eyebrow">Precision. Craftsmanship. Trust.</div>
+          <h1>Precision Restorations. Fewer Adjustments. Predictable Results.</h1>
+          <p>
+            Sunset Dental Laboratory is a full-service, owner-operated dental lab delivering high-quality crowns,
+            bridges, and implant restorations with exceptional fit, accurate occlusion, and consistent turnaround.
+            Led directly by experienced technicians, every case is handled with precision, accountability, and
+            attention to detail.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#services">Explore Our Services</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-strip">
+        <div class="container">
+          <div class="trust-grid">
+            <div class="trust-item">
+              <strong>Owner-Operated</strong>
+              <p>Direct oversight and accountability on every case.</p>
+            </div>
+            <div class="trust-item">
+              <strong>Made in the USA</strong>
+              <p>All fabrication kept in-house with no outsourcing.</p>
+            </div>
+            <div class="trust-item">
+              <strong>Chair Time Saved</strong>
+              <p>Exceptional fit and occlusion help reduce insert time.</p>
+            </div>
+            <div class="trust-item">
+              <strong>Direct Lab Access</strong>
+              <p>Questions on materials and implant systems answered directly.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="services">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow">What We Do</div>
+            <h2>Our Services</h2>
+            <p>
+              Precision-driven restorations and digital workflows designed to support efficient appointments and
+              dependable clinical results.
+            </p>
+          </div>
+
+          <div class="services-grid">
+            <article class="card service-card">
+              <div class="card-top">
+                <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6.5 3.5c1.2 2.9 1.8 3.5 4.7 4.7-2.9 1.2-3.5 1.8-4.7 4.7-1.2-2.9-1.8-3.5-4.7-4.7 2.9-1.2 3.5-1.8 4.7-4.7Z"></path><path d="M15.5 10.5c1 2.2 1.3 2.5 3.5 3.5-2.2 1-2.5 1.3-3.5 3.5-1-2.2-1.3-2.5-3.5-3.5 2.2-1 2.5-1.3 3.5-3.5Z"></path><path d="M17.5 3.5v3"></path><path d="M19 5h-3"></path></svg></div>
+                <h3>Crowns &amp; Bridges</h3>
+              </div>
+              <p>
+                Precision-milled zirconia, PFM, and full-cast restorations designed for accurate fit and minimal
+                adjustment at delivery.
+              </p>
+            </article>
+
+            <article class="card service-card">
+              <div class="card-top">
+                <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 4.5c3.7 0 6.7 2.7 7.3 6.2.4 2.1-.1 4.4-1.4 6.1-1 1.3-2.5 2.2-4.1 2.2H10.2c-1.7 0-3.1-.9-4.1-2.2-1.3-1.7-1.8-4-1.4-6.1C5.3 7.2 8.3 4.5 12 4.5Z"></path><path d="M12 8.2c1.9 0 3.4 1.5 3.4 3.4S13.9 15 12 15s-3.4-1.5-3.4-3.4S10.1 8.2 12 8.2Z"></path><path d="M12 15v4"></path></svg></div>
+                <h3>Implant Prosthetics</h3>
+              </div>
+              <p>
+                Custom abutments, screw-retained crowns, and implant-supported restorations compatible with all major
+                implant systems.
+              </p>
+            </article>
+
+            <article class="card service-card">
+              <div class="card-top">
+                <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 7.5 12 4l7 3.5v9L12 20l-7-3.5Z"></path><path d="M5 7.5 12 12l7-4.5"></path><path d="M12 12v8"></path></svg></div>
+                <h3>Digital Dentistry</h3>
+              </div>
+              <p>
+                CAD/CAM design, digital impressions, and advanced workflows for precise, efficient case execution.
+              </p>
+            </article>
+
+            <article class="card service-card">
+              <div class="card-top">
+                <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 18c1.8-4.7 5.1-8 9.8-9.8"></path><path d="M12 8h5v5"></path><path d="M5 12.5c0-3 2.5-5.5 5.5-5.5"></path><path d="M5 18.5c0-1.7 1.3-3 3-3"></path></svg></div>
+                <h3>Case Planning Support</h3>
+              </div>
+              <p>
+                Responsive guidance on materials, implant systems, and restoration design so your team can move forward
+                with clarity.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section chair-time">
+        <div class="container chair-time-panel">
+          <div class="chair-copy">
+            <div class="eyebrow">Clinical Efficiency</div>
+            <h2>Designed to Save You Chair Time</h2>
+            <p>
+              Every restoration is carefully adjusted before it reaches your office, helping reduce insert chair time
+              through accurate fit, reliable contacts, and proper occlusion.
+            </p>
+          </div>
+
+          <div class="chair-points">
+            <ul class="check-list">
+              <li><span>✓</span>Minimal occlusal adjustment at insertion</li>
+              <li><span>✓</span>Accurate margins and interproximal contacts</li>
+              <li><span>✓</span>Consistent, predictable fit</li>
+              <li><span>✓</span>Smoother appointments and improved workflow</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="owner-panel">
+            <div class="eyebrow">Owner-Operated</div>
+            <h2>Personally Overseen. Directly Accountable.</h2>
+            <p>
+              Your cases are not passed through layers of technicians. They are handled directly by experienced owners
+              who take responsibility for every restoration that leaves the lab, ensuring consistency, accountability,
+              and attention to detail on every case.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="quality">
+        <div class="container">
+          <div class="section-heading">
+            <div class="eyebrow">Our Promise</div>
+            <h2>Quality Assured on Every Case</h2>
+            <p>
+              Every restoration is inspected, adjusted, and approved before delivery, ensuring precise fit, proper
+              occlusion, and dependable clinical results.
+            </p>
+          </div>
+
+          <div class="quality-grid">
+            <article class="card">
+              <div class="card-top">
+                <div class="icon">✓</div>
+                <h3>Made in the USA</h3>
+              </div>
+              <p>Every restoration is designed and fabricated in our American lab — never outsourced.</p>
+            </article>
+
+            <article class="card">
+              <div class="card-top">
+                <div class="icon">✓</div>
+                <h3>FDA-Compliant Materials</h3>
+              </div>
+              <p>
+                We use only FDA-cleared, biocompatible materials and genuine components from trusted manufacturers, with
+                full traceability for every case. No third-party substitutions.
+                <span class="quality-extra">Material certificates available upon request.</span>
+              </p>
+            </article>
+
+            <article class="card">
+              <div class="card-top">
+                <div class="icon">✓</div>
+                <h3>Case-by-Case Inspection</h3>
+              </div>
+              <p>Each case undergoes detailed quality checks before delivery to ensure clinical accuracy.</p>
+            </article>
+
+            <article class="card">
+              <div class="card-top">
+                <div class="icon">✓</div>
+                <h3>Reliable Turnaround</h3>
+              </div>
+              <p>Standard cases completed in 5–7 business days, with rush options available when needed.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="support">
+        <div class="container">
+          <div class="support-panel">
+            <div class="eyebrow">Direct Access to the Lab</div>
+            <h2>Questions Answered by People Who Know the Case</h2>
+            <p>
+              We are available to support your clinical decisions, not just fulfill orders. For questions about dental
+              materials, implant systems, or case planning, you can contact the lab directly and get clear answers from
+              experienced technicians.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container">
+          <div class="usa-panel">
+            <div class="eyebrow">Made in America</div>
+            <h2>100% Crafted in the USA</h2>
+            <p>
+              We maintain full control over materials, timelines, and quality by keeping all fabrication in-house,
+              ensuring consistency on every single case.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-band" id="contact">
+        <div class="container">
+          <div class="cta-panel">
+            <h2>Work With a Lab You Can Rely On</h2>
+            <p>
+              Join dental practices that value precision, consistency, and responsive communication.
+            </p>
+            <div class="contact-links">
+              <a class="contact-chip" href="mailto:gtrabovsky@gmail.com">gtrabovsky@gmail.com</a>
+              <a class="contact-chip" href="tel:15186881687">(518) 688-1687</a>
+            </div>
+            <a class="btn" href="mailto:gtrabovsky@gmail.com">Contact Us Today</a>
+          </div>
+        </div>
+
+        <footer>
+          <div class="container footer-grid">
+            <div>
+              <h4>Sunset Dental Laboratory</h4>
+              <p>
+                Precision dental restorations crafted in the USA. Owner-operated with quality assured on every case.
+              </p>
+            </div>
+
+            <div>
+              <h4>Lab Hours</h4>
+              <p>Available 7 days a week<br />Call or email anytime — direct responses from the lab</p>
+            </div>
+
+            <div>
+              <h4>Contact</h4>
+              <p>
+                <a href="mailto:gtrabovsky@gmail.com">gtrabovsky@gmail.com</a><br />
+                <a href="tel:15186881687">(518) 688-1687</a>
+              </p>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>
